@@ -47,7 +47,7 @@ export const SearchOverlay = ({ allPosts, onClose }: SearchOverlayProps) => {
         .slice(0, 10);
       setResults(searchResults);
     }, 300),
-    [searchIndex]
+    [searchIndex] // Dependency array is now correct
   );
 
   useEffect(() => {

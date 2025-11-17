@@ -20,6 +20,11 @@ export interface PostData {
   nextPost: { slug: string; title: string } | null;
 }
 
+interface PostFrontMatter {
+  date: string;
+  [key: string]: any;
+}
+
 export function getSortedPostsData() {
   const allPostsFolders = fs.readdirSync(postsDirectory);
 
@@ -31,7 +36,7 @@ export function getSortedPostsData() {
 
     return {
       slug,
-      ...(matterResult.data as { [key: string]: any }),
+      ...(matterResult.data as PostFrontMatter),
     };
   });
 
