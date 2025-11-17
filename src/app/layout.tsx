@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={cn("min-h-screen font-body antialiased")}>
-        <div className="relative flex min-h-screen flex-col bg-warm-beige">
+        <div className="relative flex min-h-screen flex-col bg-white">
           <SearchProvider allPosts={allPosts}>
             <main className="flex-1">{children}</main>
           </SearchProvider>
