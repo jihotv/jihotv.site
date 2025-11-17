@@ -50,13 +50,13 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <article className="container max-w-4xl mx-auto px-8 md:px-12 lg:px-16 py-12 md:py-20">
-      <header className="mb-12 md:mb-16">
-        <div className="flex flex-wrap gap-3 mb-6">
+      <header className="mb-16 md:mb-24">
+        <div className="flex flex-wrap gap-4 mb-8">
           {post.tags.map(tag => (
             <span key={tag} className="text-xs uppercase tracking-wider text-gray-400">{tag}</span>
           ))}
         </div>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">{post.title}</h1>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">{post.title}</h1>
         <div className="flex items-center gap-4 text-sm text-gray-500 uppercase tracking-wider">
           <time dateTime={post.date}>{new Date(post.date).toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\. /g, '.').replace(/\.$/, '')}</time>
           <span>·</span>
@@ -66,7 +66,7 @@ export default async function PostPage({ params }: Props) {
         </div>
       </header>
 
-      <div className="relative w-full aspect-[16/9] mb-12 md:mb-16">
+      <div className="relative w-full aspect-[16/9] mb-16 md:mb-24">
         <Image
           src={post.featured_image}
           alt={post.title}
@@ -77,15 +77,15 @@ export default async function PostPage({ params }: Props) {
       </div>
 
       <div
-        className="prose prose-lg md:prose-xl max-w-none prose-headings:font-bold prose-headings:text-black prose-p:text-gray-700 prose-a:text-black prose-a:underline hover:prose-a:opacity-60 prose-strong:text-black prose-img:grayscale-[0.6]"
+        className="prose prose-lg md:prose-xl max-w-none prose-headings:font-bold prose-headings:text-black prose-headings:tracking-[-0.02em] prose-p:text-gray-700 prose-p:leading-loose prose-p:tracking-[0.01em] prose-a:text-black prose-a:underline hover:prose-a:opacity-85 prose-strong:text-black prose-img:grayscale-[0.6]"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
 
-      <div className="mt-16 md:mt-20">
+      <div className="mt-24 md:mt-32">
         <PrevNextPostNav prevPost={post.prevPost} nextPost={post.nextPost} />
       </div>
 
-      <div className="mt-12">
+      <div className="mt-20 md:mt-24">
         <ShareButtons title={post.title} />
       </div>
     </article>
