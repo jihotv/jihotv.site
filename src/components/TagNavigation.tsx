@@ -10,16 +10,16 @@ interface TagNavigationProps {
 
 const TagNavigation = ({ tags, activeTag, setActiveTag }: TagNavigationProps) => {
   return (
-    <nav className="tag-navigation my-12 md:my-16" role="navigation" aria-label="콘텐츠 필터">
-      <div className="container max-w-7xl mx-auto px-6 flex justify-center items-center gap-3 md:gap-4 flex-wrap">
+    <nav className="tag-navigation my-24 md:my-32" role="navigation" aria-label="콘텐츠 필터">
+      <div className="container max-w-6xl mx-auto px-8 md:px-12 lg:px-16 flex justify-center items-center gap-3 md:gap-4 flex-wrap">
         {tags.map((tag) => (
           <motion.button
             key={tag}
             onClick={() => setActiveTag(tag)}
-            className={`tag-button px-5 py-2.5 text-xs md:text-sm font-medium tracking-wider uppercase transition-smooth border
+            className={`tag-button px-3 py-1.5 text-xs md:text-sm font-medium tracking-wider uppercase transition-smooth
               ${activeTag === tag
-                ? 'bg-black text-white border-black'
-                : 'bg-white text-gray-700 border-gray-300 hover:border-black hover:text-black'
+                ? 'bg-black text-white'
+                : 'bg-white text-gray-700 hover:text-black'
               }`
             }
             aria-pressed={activeTag === tag}

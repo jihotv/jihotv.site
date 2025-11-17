@@ -28,12 +28,12 @@ const ContentCard = ({ slug, title, excerpt, date, tags, featured_image }: Conte
       className="content-card group"
     >
       <Link href={slug} className="card-link block">
-        <div className="card-image-wrapper relative w-full aspect-[4/3] overflow-hidden bg-gray-100 mb-4">
+        <div className="card-image-wrapper relative w-full aspect-[3/4] overflow-hidden bg-gray-100 mb-6">
           <Image
             src={featured_image}
             alt={title}
             fill
-            className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-smooth duration-700"
+            className="object-cover grayscale-[0.6] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700 ease-out"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
@@ -42,17 +42,12 @@ const ContentCard = ({ slug, title, excerpt, date, tags, featured_image }: Conte
             <span className="card-tag">{tags[0]}</span>
             <time dateTime={date}>{new Date(date).toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\. /g, '.').replace(/\.$/, '')}</time>
           </div>
-          <h3 className="card-title text-xl md:text-2xl font-bold text-black leading-tight group-hover:opacity-60 transition-smooth">
+          <h3 className="card-title text-2xl md:text-3xl lg:text-4xl font-bold text-black leading-tight tracking-[-0.02em] group-hover:opacity-85 transition-smooth">
             {title}
           </h3>
-          <p className="card-excerpt text-sm md:text-base text-gray-600 leading-relaxed line-clamp-2">
+          <p className="card-excerpt text-sm md:text-base text-gray-600 leading-loose tracking-[0.01em] line-clamp-2">
             {excerpt}
           </p>
-          <div className="inline-block">
-            <span className="text-xs font-medium text-black group-hover:text-accent transition-smooth border-b border-transparent group-hover:border-current pb-0.5">
-              READ MORE
-            </span>
-          </div>
         </div>
       </Link>
     </motion.article>

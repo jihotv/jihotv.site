@@ -10,7 +10,7 @@ const Hero = () => {
           src="/images/hero/main-hero-desktop.jpg"
           alt="jihotv 메인 비주얼"
           fill
-          className="object-cover grayscale"
+          className="object-cover grayscale-[0.6]"
           priority
         />
       </picture>

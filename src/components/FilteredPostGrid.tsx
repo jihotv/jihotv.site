@@ -62,8 +62,8 @@ export default function FilteredPostGrid({ allPosts }: FilteredPostGridProps) {
           setLimit(POSTS_PER_PAGE); // Reset limit when tag changes
         }}
       />
-      <div className="container max-w-7xl mx-auto px-6 pb-16">
-        <motion.main layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-16">
+      <div className="container max-w-6xl mx-auto px-8 md:px-12 lg:px-16 pb-16">
+        <motion.main layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 md:gap-y-24 lg:gap-y-32">
           <AnimatePresence>
             {postsToShow.map((post, index) => (
               <ContentCard
@@ -79,9 +79,6 @@ export default function FilteredPostGrid({ allPosts }: FilteredPostGridProps) {
           </AnimatePresence>
         </motion.main>
         <div ref={lastElementRef} className="h-8" />
-        {!hasMore && filteredPosts.length > 0 && (
-          <p className="text-center text-gray-400 text-sm uppercase tracking-wider my-12">모든 포스트를 보셨습니다.</p>
-        )}
       </div>
     </>
   );

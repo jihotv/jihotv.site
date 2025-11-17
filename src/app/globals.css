@@ -26,6 +26,6 @@
 
 @layer utilities {
   .transition-smooth {
-    @apply transition-all duration-300 ease-out;
+    @apply transition-all duration-700 ease-out;
   }
 }
