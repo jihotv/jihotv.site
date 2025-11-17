@@ -40,7 +40,7 @@ export function getSortedPostsData() {
     };
   });
 
-  const sortedPosts = allPostsData.sort((a, b) => {
+  const sortedPosts: (PostFrontMatter & { slug: string })[] = allPostsData.sort((a, b) => {
     if (a.date < b.date) {
       return 1;
     } else {
