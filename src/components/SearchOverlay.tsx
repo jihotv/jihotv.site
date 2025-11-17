@@ -59,30 +59,30 @@ export const SearchOverlay = ({ allPosts, onClose }: SearchOverlayProps) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="search-overlay fixed inset-0 z-50 bg-black/80 backdrop-blur-sm"
+      className="search-overlay fixed inset-0 z-50 bg-white"
       role="dialog"
       aria-modal="true"
     >
-      <div className="container mx-auto px-4 pt-20">
-        <div className="relative max-w-2xl mx-auto">
+      <div className="container max-w-4xl mx-auto px-6 pt-24 md:pt-32">
+        <div className="relative">
           <input
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="검색어를 입력하세요..."
-            className="w-full p-4 text-lg bg-transparent border-b-2 border-white text-white focus:outline-none focus:border-soft-blue"
+            placeholder="검색어를 입력하세요"
+            className="w-full py-4 text-2xl md:text-3xl bg-transparent border-b border-gray-300 text-black placeholder:text-gray-400 focus:outline-none focus:border-black transition-smooth"
             autoFocus
           />
           <button
             onClick={onClose}
-            className="absolute top-1/2 right-0 -translate-y-1/2 text-white hover:text-soft-blue p-4"
+            className="absolute top-1/2 right-0 -translate-y-1/2 text-gray-400 hover:text-black transition-smooth text-sm uppercase tracking-wider"
             aria-label="검색 닫기"
           >
-            Close
+            닫기
           </button>
         </div>
 
-        <div className="mt-8 max-w-2xl mx-auto">
+        <div className="mt-12 space-y-6">
           <AnimatePresence>
             {results.map(result => (
               <motion.div
@@ -91,13 +91,27 @@ export const SearchOverlay = ({ allPosts, onClose }: SearchOverlayProps) => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
               >
-                <Link href={`/posts/${result.slug}`} onClick={onClose} className="block p-4 my-2 bg-gray-800/50 rounded-lg hover:bg-gray-700">
-                  <h4 className="font-bold text-white">{result.title}</h4>
-                  <p className="text-gray-300 text-sm mt-1">{result.excerpt}</p>
+                <Link
+                  href={`/posts/${result.slug}`}
+                  onClick={onClose}
+                  className="block py-6 border-b border-gray-200 hover:border-black transition-smooth group"
+                >
+                  <h4 className="font-bold text-xl md:text-2xl text-black group-hover:opacity-60 transition-smooth mb-2">
+                    {result.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm md:text-base line-clamp-2">{result.excerpt}</p>
+                  <div className="mt-3 flex gap-2">
+                    {result.tags.map(tag => (
+                      <span key={tag} className="text-xs uppercase tracking-wider text-gray-400">{tag}</span>
+                    ))}
+                  </div>
                 </Link>
               </motion.div>
             ))}
           </AnimatePresence>
+          {query.length >= 2 && results.length === 0 && (
+            <p className="text-gray-400 text-center py-12">검색 결과가 없습니다.</p>
+          )}
         </div>
       </div>
     </motion.div>

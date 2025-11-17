@@ -17,36 +17,42 @@ const ContentCard = ({ slug, title, excerpt, date, tags, featured_image }: Conte
   return (
     <motion.article
       layout
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.9 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
       transition={{
-        opacity: { duration: 0.3 },
+        opacity: { duration: 0.4 },
+        y: { duration: 0.4 },
         layout: { duration: 0.3, type: "spring" }
       }}
-      className="content-card bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+      className="content-card group"
     >
-      <Link href={slug} className="card-link group">
-        <div className="card-image-wrapper relative w-full h-48">
+      <Link href={slug} className="card-link block">
+        <div className="card-image-wrapper relative w-full aspect-[4/3] overflow-hidden bg-gray-100 mb-4">
           <Image
             src={featured_image}
             alt={title}
             fill
-            className="object-cover"
+            className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-smooth duration-700"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-        <div className="card-content p-4 md:p-6">
-          <div className="card-meta mb-2 flex items-center justify-between text-xs text-gray-500">
-            <span className="card-tag font-semibold bg-soft-blue/20 text-deep-blue px-2 py-1 rounded-full">{tags[0]}</span>
-            <time dateTime={date}>{new Date(date).toLocaleDateString('ko-KR')}</time>
+        <div className="card-content space-y-3">
+          <div className="card-meta flex items-center justify-between text-xs text-gray-500 uppercase tracking-wider">
+            <span className="card-tag">{tags[0]}</span>
+            <time dateTime={date}>{new Date(date).toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\. /g, '.').replace(/\.$/, '')}</time>
           </div>
-          <h3 className="card-title text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-deep-blue transition-colors">
+          <h3 className="card-title text-xl md:text-2xl font-bold text-black leading-tight group-hover:opacity-60 transition-smooth">
             {title}
           </h3>
-          <p className="card-excerpt text-sm text-gray-700">
+          <p className="card-excerpt text-sm md:text-base text-gray-600 leading-relaxed line-clamp-2">
             {excerpt}
           </p>
+          <div className="inline-block">
+            <span className="text-xs font-medium text-black group-hover:text-accent transition-smooth border-b border-transparent group-hover:border-current pb-0.5">
+              READ MORE
+            </span>
+          </div>
         </div>
       </Link>
     </motion.article>

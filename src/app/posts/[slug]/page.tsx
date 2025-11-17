@@ -49,41 +49,45 @@ export default async function PostPage({ params }: Props) {
   }
 
   return (
-    <article className="container mx-auto px-4 py-8">
-      <header className="mb-8 text-center">
-        <h1 className="text-h1 font-bold mb-2">{post.title}</h1>
-        <div className="text-gray-500 text-sm">
-          <time dateTime={post.date}>{new Date(post.date).toLocaleDateString('ko-KR')}</time>
-          <span className="mx-2">·</span>
-          <span>{post.author}</span>
-          <span className="mx-2">·</span>
-          <span>{post.reading_time}분 읽기</span>
-        </div>
-        <div className="mt-4 flex justify-center gap-2">
+    <article className="container max-w-4xl mx-auto px-6 py-12 md:py-20">
+      <header className="mb-12 md:mb-16">
+        <div className="flex flex-wrap gap-3 mb-6">
           {post.tags.map(tag => (
-            <span key={tag} className="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs font-semibold">{tag}</span>
+            <span key={tag} className="text-xs uppercase tracking-wider text-gray-400">{tag}</span>
           ))}
+        </div>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">{post.title}</h1>
+        <div className="flex items-center gap-4 text-sm text-gray-500 uppercase tracking-wider">
+          <time dateTime={post.date}>{new Date(post.date).toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\. /g, '.').replace(/\.$/, '')}</time>
+          <span>·</span>
+          <span>{post.author}</span>
+          <span>·</span>
+          <span>{post.reading_time}분</span>
         </div>
       </header>
 
-      <div className="relative w-full h-[60vh] max-h-[500px] mb-8">
+      <div className="relative w-full aspect-[16/9] mb-12 md:mb-16">
         <Image
           src={post.featured_image}
           alt={post.title}
           fill
-          className="object-cover rounded-lg"
+          className="object-cover grayscale"
           priority
         />
       </div>
 
       <div
-        className="prose lg:prose-xl max-w-none mx-auto"
+        className="prose prose-lg md:prose-xl max-w-none prose-headings:font-bold prose-headings:text-black prose-p:text-gray-700 prose-a:text-black prose-a:underline hover:prose-a:opacity-60 prose-strong:text-black prose-img:grayscale"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
 
-      <PrevNextPostNav prevPost={post.prevPost} nextPost={post.nextPost} />
+      <div className="mt-16 md:mt-20">
+        <PrevNextPostNav prevPost={post.prevPost} nextPost={post.nextPost} />
+      </div>
 
-      <ShareButtons title={post.title} />
+      <div className="mt-12">
+        <ShareButtons title={post.title} />
+      </div>
     </article>
   );
 }

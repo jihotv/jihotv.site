@@ -8,16 +8,37 @@ interface HeaderProps {
 
 const Header = ({ onSearchOpen }: HeaderProps) => {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-gray-300/40 bg-warm-beige/80 backdrop-blur supports-[backdrop-filter]:bg-warm-beige/60">
-      <div className="container flex h-14 max-w-screen-2xl items-center mx-auto px-4">
-        <div className="mr-4 flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="font-bold text-lg">jihotv</span>
+    <header className="sticky top-0 z-40 w-full border-b border-gray-200 bg-white/95 backdrop-blur-sm">
+      <div className="container max-w-7xl mx-auto px-6 py-6 md:py-8">
+        <div className="flex items-center justify-between">
+          <Link href="/" className="group flex flex-col">
+            <span className="font-display text-2xl md:text-3xl font-bold tracking-tight text-black transition-smooth group-hover:opacity-60">
+              jihotv
+            </span>
+            <span className="text-xs md:text-sm text-gray-500 mt-0.5 tracking-wide">
+              당신의 일상을 특별하게
+            </span>
           </Link>
-        </div>
-        <div className="flex flex-1 items-center justify-end">
-          <button onClick={onSearchOpen} className="search-trigger" aria-label="검색">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/></svg>
+          <button
+            onClick={onSearchOpen}
+            className="group p-2 hover:bg-gray-50 rounded-full transition-smooth"
+            aria-label="검색"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-5 h-5 md:w-6 md:h-6 transition-smooth group-hover:scale-110"
+            >
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.35-4.35"/>
+            </svg>
           </button>
         </div>
       </div>
