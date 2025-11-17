@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Pretendard Variable';
+  src: url('/fonts/PretendardVariable.woff2') format('woff2-variations');
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-warm-beige text-gray-700 font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-gray-900;
+  }
+}
