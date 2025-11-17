@@ -49,7 +49,7 @@ export default async function PostPage({ params }: Props) {
   }
 
   return (
-    <article className="container max-w-4xl mx-auto px-6 py-12 md:py-20">
+    <article className="container max-w-4xl mx-auto px-8 md:px-12 lg:px-16 py-12 md:py-20">
       <header className="mb-12 md:mb-16">
         <div className="flex flex-wrap gap-3 mb-6">
           {post.tags.map(tag => (
@@ -71,13 +71,13 @@ export default async function PostPage({ params }: Props) {
           src={post.featured_image}
           alt={post.title}
           fill
-          className="object-cover grayscale"
+          className="object-cover grayscale-[0.6]"
           priority
         />
       </div>
 
       <div
-        className="prose prose-lg md:prose-xl max-w-none prose-headings:font-bold prose-headings:text-black prose-p:text-gray-700 prose-a:text-black prose-a:underline hover:prose-a:opacity-60 prose-strong:text-black prose-img:grayscale"
+        className="prose prose-lg md:prose-xl max-w-none prose-headings:font-bold prose-headings:text-black prose-p:text-gray-700 prose-a:text-black prose-a:underline hover:prose-a:opacity-60 prose-strong:text-black prose-img:grayscale-[0.6]"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
 

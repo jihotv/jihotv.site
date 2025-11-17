@@ -9,10 +9,10 @@ interface HeaderProps {
 const Header = ({ onSearchOpen }: HeaderProps) => {
   return (
     <header className="z-40 w-full bg-white/95 backdrop-blur-sm">
-      <div className="container max-w-7xl mx-auto px-6 py-3 md:py-4">
+      <div className="container max-w-6xl mx-auto px-8 md:px-12 lg:px-16 py-3 md:py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="group flex flex-col">
-            <span className="font-display text-2xl md:text-3xl font-bold tracking-tight text-black transition-smooth group-hover:opacity-60">
+            <span className="font-display text-2xl md:text-3xl font-bold tracking-tight text-black transition-smooth group-hover:opacity-85">
               jihotv
             </span>
             <span className="text-xs md:text-sm text-gray-500 mt-0.5 tracking-wide">

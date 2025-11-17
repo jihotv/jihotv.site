@@ -62,8 +62,8 @@ export default function FilteredPostGrid({ allPosts }: FilteredPostGridProps) {
           setLimit(POSTS_PER_PAGE); // Reset limit when tag changes
         }}
       />
-      <div className="container max-w-7xl mx-auto px-6 pb-16">
-        <motion.main layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-16">
+      <div className="container max-w-6xl mx-auto px-8 md:px-12 lg:px-16 pb-16">
+        <motion.main layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 md:gap-y-24 lg:gap-y-32">
           <AnimatePresence>
             {postsToShow.map((post, index) => (
               <ContentCard
