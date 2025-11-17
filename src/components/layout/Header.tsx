@@ -8,8 +8,8 @@ interface HeaderProps {
 
 const Header = ({ onSearchOpen }: HeaderProps) => {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-gray-200 bg-white/95 backdrop-blur-sm">
-      <div className="container max-w-7xl mx-auto px-6 py-6 md:py-8">
+    <header className="z-40 w-full bg-white/95 backdrop-blur-sm">
+      <div className="container max-w-7xl mx-auto px-6 py-3 md:py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="group flex flex-col">
             <span className="font-display text-2xl md:text-3xl font-bold tracking-tight text-black transition-smooth group-hover:opacity-60">
