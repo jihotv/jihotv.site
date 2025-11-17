@@ -79,9 +79,6 @@ export default function FilteredPostGrid({ allPosts }: FilteredPostGridProps) {
           </AnimatePresence>
         </motion.main>
         <div ref={lastElementRef} className="h-8" />
-        {!hasMore && filteredPosts.length > 0 && (
-          <p className="text-center text-gray-400 text-sm uppercase tracking-wider my-12">모든 포스트를 보셨습니다.</p>
-        )}
       </div>
     </>
   );
