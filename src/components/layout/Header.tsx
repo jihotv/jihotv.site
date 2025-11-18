@@ -16,7 +16,7 @@ const Header = ({ onSearchOpen }: HeaderProps) => {
               jihotv
             </span>
             <span className="text-xs md:text-sm text-gray-500 mt-0.5 tracking-wide">
-              당신의 일상을 특별하게
+              넥스트 컬쳐 아카이브
             </span>
           </Link>
           <button

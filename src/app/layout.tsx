@@ -7,7 +7,7 @@ import { getSortedPostsData } from '@/lib/posts';
 
 export const metadata: Metadata = {
   title: "jihotv",
-  description: "당신의 일상을 특별하게",
+  넥스트 컬쳐 아카이브
   icons: {
     icon: '/favicon.ico',
   },
