@@ -14,7 +14,6 @@ const Hero = () => {
           priority
         />
       </picture>
-      <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
     </section>
   );
 };
