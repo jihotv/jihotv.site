@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AX/DX 컨설팅 | AI가 일할 수 있는 구조를 만듭니다</title>
+    <title>AX·Workflow·Automation | 업무 자동화 컨설팅</title>
+    <meta name="description" content="AI 도입 전, 업무 구조부터 만듭니다. 중소기업을 위한 업무 자동화 및 워크플로우 컨설팅 서비스.">
+    <meta property="og:title" content="AX·Workflow·Automation | 업무 자동화 컨설팅">
+    <meta property="og:description" content="AI를 도입하기 전에, 구조부터 만들어야 합니다. 귀사의 업무 방식을 분석하고, 데이터를 정리하고, AI가 실제로 일할 수 있는 환경을 만들어 드립니다.">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <style>
         :root {
-            --navy: #1a1f36;
-            --dark-gray: #2d3748;
-            --medium-gray: #4a5568;
-            --light-gray: #718096;
-            --lighter-gray: #e2e8f0;
-            --off-white: #f7fafc;
-            --accent: #4fd1c5;
-            --text-primary: #1a202c;
-            --text-secondary: #4a5568;
+            --bg-primary: #FAFAF8;
+            --text-primary: #1a1a1a;
+            --text-secondary: #64625B;
+            --accent: #3A4A3A;
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --contact-bg: #1a1a1a;
         }
 
         * {
@@ -30,9 +31,13 @@
 
         body {
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.7;
+            font-size: 1.0625rem;
+            font-weight: 400;
+            line-height: 1.8;
             color: var(--text-primary);
-            background-color: #ffffff;
+            background-color: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Navigation */
@@ -41,42 +46,44 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(250, 250, 248, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             z-index: 1000;
-            border-bottom: 1px solid var(--lighter-gray);
+            border-bottom: 1px solid var(--border-subtle);
         }
 
         nav .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1.25rem 2.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--navy);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.9375rem;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--navy);
+            color: var(--text-primary);
         }
 
         .mobile-menu-btn {
@@ -85,19 +92,28 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--navy);
+            color: var(--text-primary);
+            padding: 0;
+        }
+
+        .mobile-menu-open .nav-links {
+            display: flex;
         }
 
         /* Container */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 2.5rem;
+        }
+
+        .text-container {
+            max-width: 680px;
         }
 
         /* Section Base */
         section {
-            padding: 6rem 0;
+            padding: 10rem 0;
         }
 
         /* Hero Section */
@@ -105,333 +121,356 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--dark-gray) 100%);
-            color: white;
             padding-top: 80px;
+            background-color: var(--bg-primary);
         }
 
-        .hero-content {
-            max-width: 800px;
+        .hero-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
         }
 
         .hero h1 {
-            font-size: 2.75rem;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 1.5rem;
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            margin-bottom: 2.5rem;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-        }
-
-        .hero-accent {
-            color: var(--accent);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.875rem;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
+            font-size: 1.125rem;
+            font-weight: 400;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 560px;
         }
 
         /* Section Headers */
         .section-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
+            margin-bottom: 5rem;
         }
 
         .section-header h2 {
-            font-size: 2rem;
+            font-size: 2.75rem;
             font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 0.75rem;
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
         }
 
         /* Problem Section */
-        .problem {
-            background: var(--off-white);
-        }
-
         .problem-list {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 3.5rem;
         }
 
         .problem-item {
-            background: white;
-            padding: 1.75rem 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--accent);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .problem-item::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -0.25rem;
+            font-size: 4rem;
+            font-weight: 300;
+            line-height: 1;
+            color: var(--accent);
+            opacity: 0.3;
         }
 
         .problem-item p {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 1.65;
+            color: var(--text-primary);
+            max-width: 720px;
         }
 
         /* Solution Section */
         .solution-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+        }
+
+        .step {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .step-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid var(--lighter-gray);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .step-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            grid-template-columns: 80px 1fr;
+            gap: 2.5rem;
+            align-items: start;
         }
 
         .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            background: var(--navy);
-            color: white;
-            font-weight: 700;
-            font-size: 1.25rem;
-            border-radius: 12px;
-            margin-bottom: 1.25rem;
+            font-size: 1.125rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            opacity: 0.5;
+            padding-top: 0.25rem;
         }
 
-        .step-card h3 {
-            font-size: 1.35rem;
+        .step-content h3 {
+            font-size: 1.75rem;
             font-weight: 700;
-            color: var(--navy);
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
             margin-bottom: 1rem;
         }
 
-        .step-card p {
+        .step-content p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
             color: var(--text-secondary);
-            line-height: 1.7;
+            max-width: 600px;
         }
 
         /* About Section */
-        .about {
-            background: var(--off-white);
-        }
-
         .about-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .about-list {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 3rem;
         }
 
-        .about-item {
-            display: flex;
-            gap: 1.25rem;
-            align-items: flex-start;
-        }
-
-        .about-icon {
-            flex-shrink: 0;
-            width: 24px;
-            height: 24px;
-            color: var(--accent);
-            margin-top: 0.25rem;
-        }
-
-        .about-item p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
+        .about-paragraph {
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.75;
+            color: var(--text-primary);
+            max-width: 680px;
         }
 
         /* Contact Section */
         .contact {
-            background: var(--navy);
+            background: var(--contact-bg);
             color: white;
-            text-align: center;
         }
 
         .contact .section-header h2 {
             color: white;
+            margin-bottom: 1.5rem;
         }
 
-        .contact .section-header p {
-            color: rgba(255, 255, 255, 0.7);
+        .contact-subtext {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 520px;
+            margin-bottom: 4rem;
         }
 
         .contact-methods {
             display: flex;
             flex-direction: column;
-            gap: 1.25rem;
-            max-width: 500px;
-            margin: 0 auto;
+            gap: 1rem;
+            max-width: 520px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 1rem;
-            padding: 1.25rem 2rem;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
+            padding: 1.25rem 1.75rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
             text-decoration: none;
             color: white;
-            transition: background 0.3s;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .contact-item:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .contact-icon {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             flex-shrink: 0;
-        }
-
-        .contact-info {
-            text-align: left;
-        }
-
-        .contact-label {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 0.25rem;
+            opacity: 0.7;
         }
 
         .contact-value {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         /* Footer */
         footer {
-            background: var(--dark-gray);
-            color: rgba(255, 255, 255, 0.5);
+            background: var(--contact-bg);
+            color: rgba(255, 255, 255, 0.4);
             text-align: center;
-            padding: 2rem 0;
+            padding: 2.5rem 0;
             font-size: 0.875rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
+            nav .container {
+                padding: 1rem 1.5rem;
+            }
+
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(250, 250, 248, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+
+            .nav-links a {
+                padding: 1.25rem 1.5rem;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
             }
 
             .mobile-menu-btn {
                 display: block;
             }
 
+            .container {
+                padding: 0 1.5rem;
+            }
+
             section {
-                padding: 4rem 0;
+                padding: 6rem 0;
+            }
+
+            .hero {
+                padding-top: 60px;
             }
 
             .hero h1 {
-                font-size: 1.875rem;
+                font-size: 2.5rem;
+                line-height: 1.2;
+                margin-bottom: 2rem;
             }
 
             .hero p {
-                font-size: 1.05rem;
+                font-size: 1.0625rem;
             }
 
             .section-header h2 {
-                font-size: 1.625rem;
+                font-size: 2rem;
             }
 
-            .step-card {
-                padding: 1.75rem;
+            .section-header {
+                margin-bottom: 3.5rem;
             }
 
-            .container {
-                padding: 0 1.25rem;
+            .problem-item p {
+                font-size: 1.25rem;
             }
 
-            .problem-item {
-                padding: 1.25rem 1.5rem;
+            .problem-list {
+                gap: 2.5rem;
             }
 
-            .about-item {
-                gap: 1rem;
+            .solution-steps {
+                gap: 3.5rem;
             }
 
-            .about-item p {
-                font-size: 1rem;
+            .step {
+                grid-template-columns: 60px 1fr;
+                gap: 1.5rem;
+            }
+
+            .step-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .about-content {
+                gap: 2rem;
+            }
+
+            .about-paragraph {
+                font-size: 1.125rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 1.625rem;
+                font-size: 2rem;
             }
 
-            .solution-steps {
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .problem-item p {
+                font-size: 1.125rem;
+            }
+
+            .step {
                 grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .step-number {
+                font-size: 1rem;
+            }
+
+            .about-paragraph {
+                font-size: 1.0625rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
+    <nav aria-label="Main navigation">
         <div class="container">
-            <div class="logo">AX/DX 컨설팅</div>
+            <div class="logo">AX·Workflow·Automation</div>
             <div class="nav-links">
                 <a href="#problem">문제</a>
-                <a href="#solution">해결</a>
-                <a href="#about">소개</a>
+                <a href="#solution">과정</a>
+                <a href="#about">차별화</a>
                 <a href="#contact">연락처</a>
             </div>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <button class="mobile-menu-btn" aria-label="Toggle mobile menu" onclick="toggleMobileMenu()">☰</button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>
-                    AI를 도입하기 전에,<br>
-                    먼저 <span class="hero-accent">AI가 일할 수 있는 구조</span>를<br>
-                    만들어야 합니다
-                </h1>
-                <p>
-                    귀사의 업무 방식을 분석하고, 데이터를 정리하고, 
-                    AI가 실제로 일할 수 있는 환경을 만들어 드립니다.
-                </p>
+            <div class="text-container">
+                <div class="hero-label">업무 자동화 컨설팅</div>
+                <h1>AI를 도입하기 전에,<br>구조부터 만들어야 합니다.</h1>
+                <p>귀사의 업무 방식을 분석하고, 데이터를 정리하고,<br>AI가 실제로 일할 수 있는 환경을 만들어 드립니다.</p>
             </div>
         </div>
-        <div class="scroll-indicator">↓ 스크롤하여 더 알아보기</div>
     </section>
 
     <!-- Problem Section -->
@@ -439,20 +478,16 @@
         <div class="container">
             <div class="section-header">
                 <h2>이런 상황이신가요?</h2>
-                <p>많은 중소기업과 스타트업이 비슷한 고민을 하고 있습니다</p>
             </div>
             <div class="problem-list">
-                <div class="problem-item">
-                    <p>AI 도입하라는 얘기는 많은데, 우리 회사 업무에 어떻게 적용할지 모르겠다</p>
+                <div class="problem-item fade-in">
+                    <p>AI 도입하라는 얘기는 많은데,<br>우리 회사 업무에 어떻게 적용해야 할지 모르겠다.</p>
                 </div>
-                <div class="problem-item">
-                    <p>직원들이 쓰는 툴이 다 제각각이고, 정보가 여기저기 흩어져 있다</p>
+                <div class="problem-item fade-in">
+                    <p>직원마다 쓰는 툴이 다르고,<br>정보가 여기저기 흩어져 있다.</p>
                 </div>
-                <div class="problem-item">
-                    <p>자동화를 하고 싶은데 개발자를 뽑자니 비용이 크고, 기존 서비스를 쓰자니 우리 업무에 안 맞는다</p>
-                </div>
-                <div class="problem-item">
-                    <p>ChatGPT 같은 건 알겠는데 이걸 실무에 녹이는 건 다른 문제다</p>
+                <div class="problem-item fade-in">
+                    <p>자동화를 하고 싶은데 개발자를 뽑자니 비용이 크고,<br>기존 서비스를 쓰자니 우리 업무에 맞지 않는다.</p>
                 </div>
             </div>
         </div>
@@ -462,24 +497,29 @@
     <section class="solution" id="solution">
         <div class="container">
             <div class="section-header">
-                <h2>3단계로 진행합니다</h2>
-                <p>단계별로 체계적으로 접근하여 실질적인 변화를 만듭니다</p>
+                <h2>이렇게 진행합니다</h2>
             </div>
             <div class="solution-steps">
-                <div class="step-card">
+                <div class="step fade-in">
                     <div class="step-number">1</div>
-                    <h3>업무 파악</h3>
-                    <p>지금 우리 회사에서 누가, 무슨 일을, 어떤 순서로 하고 있는지 정리합니다. 그 안에서 AI가 도울 수 있는 부분을 찾습니다.</p>
+                    <div class="step-content">
+                        <h3>업무 파악</h3>
+                        <p>지금 누가, 무슨 일을, 어떤 순서로 하고 있는지 정리합니다. 그 안에서 AI가 도울 수 있는 부분을 찾습니다.</p>
+                    </div>
                 </div>
-                <div class="step-card">
+                <div class="step fade-in">
                     <div class="step-number">2</div>
-                    <h3>데이터 정리</h3>
-                    <p>AI가 일하려면 읽을 수 있는 데이터가 있어야 합니다. 흩어진 정보를 한 곳에 모으고, 시스템끼리 연결되는 구조를 만듭니다.</p>
+                    <div class="step-content">
+                        <h3>구조 설계</h3>
+                        <p>흩어진 데이터를 한 곳에 모으고, 시스템끼리 연결되는 구조를 만듭니다. 특정 제품에 종속되지 않게 설계합니다.</p>
+                    </div>
                 </div>
-                <div class="step-card">
+                <div class="step fade-in">
                     <div class="step-number">3</div>
-                    <h3>자동화 구축</h3>
-                    <p>반복되는 업무를 자동으로 처리되게 만듭니다. 리포트 자동 생성, 알림, 고객 응대 등 — 우리 회사 업무에 맞춰 설계합니다.</p>
+                    <div class="step-content">
+                        <h3>자동화 구축</h3>
+                        <p>반복되는 업무를 자동으로 처리되게 만듭니다. 직접 구축하고, 팀이 쓸 수 있도록 교육하고, 실제로 자리잡을 때까지 함께합니다.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -489,36 +529,23 @@
     <section class="about" id="about">
         <div class="container">
             <div class="section-header">
-                <h2>기술의 언어와 비즈니스의 언어, 둘 다 구사합니다</h2>
-                <p>기술과 비즈니스 사이의 간극을 메우는 컨설턴트입니다</p>
+                <h2>이렇게 일합니다</h2>
             </div>
             <div class="about-content">
-                <div class="about-list">
-                    <div class="about-item">
-                        <svg class="about-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                        <p>범용 AI 툴을 추천하는 게 아니라, <strong>우리 회사 업무에 맞는 시스템을 직접 설계하고 만들어</strong> 드립니다</p>
-                    </div>
-                    <div class="about-item">
-                        <svg class="about-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                        <p>영업, 마케팅, 커머스 운영을 직접 해본 경험이 있어서 <strong>대표님의 고민과 실무자의 현실을 동시에</strong> 이해합니다</p>
-                    </div>
-                    <div class="about-item">
-                        <svg class="about-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                            <path d="M2 17l10 5 10-5"></path>
-                            <path d="M2 12l10 5 10-5"></path>
-                        </svg>
-                        <p>업무 분석부터 시스템 구축까지 <strong>한 사람이 처음부터 끝까지</strong> 진행합니다</p>
-                    </div>
-                </div>
+                <p class="about-paragraph fade-in">
+                    AI 제품을 팔지 않습니다.<br>
+                    특정 솔루션의 리셀러가 아닙니다.<br>
+                    자동화가 필요 없는 일에 억지로 자동화를 제안하지 않습니다.
+                </p>
+                <p class="about-paragraph fade-in">
+                    영업, 마케팅, 커머스 운영을 직접 해봤기 때문에<br>
+                    현장에서 실제로 뭐가 문제인지 압니다.<br>
+                    기술만 아는 사람이 놓치는 것들을 볼 수 있습니다.
+                </p>
+                <p class="about-paragraph fade-in">
+                    진단부터 구축, 팀 교육까지<br>
+                    한 사람이 처음부터 끝까지 맡습니다.
+                </p>
             </div>
         </div>
     </section>
@@ -527,28 +554,22 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
-                <h2>프로젝트를 함께 논의해 보세요</h2>
-                <p>간단한 문의도 환영합니다. 편하게 연락 주세요.</p>
+                <h2>편하게 연락 주세요</h2>
+                <p class="contact-subtext">구체적인 프로젝트가 아니어도 괜찮습니다.<br>현재 상황을 말씀해 주시면, 도움이 될 수 있는 부분이 있는지 함께 봐드립니다.</p>
             </div>
             <div class="contact-methods">
-                <a href="mailto:jihotv.site@gmail.com" class="contact-item">
+                <a href="mailto:raon2u@gmail.com" class="contact-item">
                     <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
-                    <div class="contact-info">
-                        <div class="contact-label">이메일</div>
-                        <div class="contact-value">jihotv.site@gmail.com</div>
-                    </div>
+                    <div class="contact-value">raon2u@gmail.com</div>
                 </a>
-                <a href="https://www.linkedin.com/in/지호-박-357614210" target="_blank" class="contact-item">
+                <a href="https://www.linkedin.com/in/지호-박-357614210" target="_blank" rel="noopener noreferrer" class="contact-item">
                     <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
-                    <div class="contact-info">
-                        <div class="contact-label">LinkedIn</div>
-                        <div class="contact-value">프로필 방문하기</div>
-                    </div>
+                    <div class="contact-value">LinkedIn</div>
                 </a>
             </div>
         </div>
@@ -557,23 +578,14 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 AX/DX 컨설팅. All rights reserved.</p>
+            <p>&copy; 2026 AX·Workflow·Automation. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         // Mobile menu toggle
         function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '100%';
-            navLinks.style.left = '0';
-            navLinks.style.right = '0';
-            navLinks.style.background = 'white';
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.padding = '1rem 2rem';
-            navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            document.body.classList.toggle('mobile-menu-open');
         }
 
         // Smooth scroll for navigation links
@@ -587,9 +599,8 @@
                         block: 'start'
                     });
                     // Close mobile menu if open
-                    const navLinks = document.querySelector('.nav-links');
                     if (window.innerWidth <= 768) {
-                        navLinks.style.display = 'none';
+                        document.body.classList.remove('mobile-menu-open');
                     }
                 }
             });
@@ -599,39 +610,30 @@
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.1
+            threshold: 0.15
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.problem-item, .step-card, .about-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
 
-        // Navbar background on scroll
-        let lastScroll = 0;
+        // Navbar shadow on scroll
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            if (window.pageYOffset > 100) {
+                nav.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.05)';
             } else {
                 nav.style.boxShadow = 'none';
             }
-            
-            lastScroll = currentScroll;
         });
     </script>
 </body>
